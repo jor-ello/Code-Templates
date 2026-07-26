@@ -7,3 +7,11 @@ pandas
 numpy
 
 #libraries for webscraping
+requests
+beautifulsoup4
+openpyxl
+selenium (from selenium import webdriver)
+
+#other
+re
+time
