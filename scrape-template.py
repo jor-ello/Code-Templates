@@ -10,12 +10,12 @@ url = #url to scrape from? In single quotes, eg 'url.com'
 response = requests.get(url)
 data = response.text
 soup = BeautifulSoup(data, 'html.parser') #this line is meant to parse the html into something more reasonable
-soup_list = soup.find_all('div',{'class':'^jobsearch-HeaderContainer'}) #meant to find all the divs with some sort of quality?
+soup_list = soup.find_all('div',{'class':'^jobsearch-HeaderContainer'}) #meant to find all the divs with the specific class
 
-#must check bs4 documentation
+
 
 for job in soup_list:
-        #print('here') #debugging line to ensure we've entered loop
+        #print('here') # debugging line to ensure we've entered loop
         title = job.find('a',{'class':'jobtitle'}).text
         link1 = job.find('a',{'class':'jobtitle'}).get('href')
         link = 'https://www.indeed.com' + link1
