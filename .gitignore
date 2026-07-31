@@ -2,3 +2,7 @@
 
 config.py
 scratch.py
+__pycache__/
+bin/
+lib/
+pyvenv.cfg
