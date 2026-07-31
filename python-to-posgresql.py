@@ -18,10 +18,10 @@ database = config.database
 pwd = config.pwd
 port_id = config.port_id
 conn = None
-curr = None
+cur = None
 
 try:
-   conn = psycopg2.connect(
+   conn = pg2.connect(
        host = hostname,
        dbname = database,
        user = username,
@@ -58,8 +58,7 @@ try:
    #
    ####################################
    
-   sql_script = '''. '''
-
+   sql_script = '.'
    cur.execute(sql_script)
 
    #################################
