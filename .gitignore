@@ -7,3 +7,4 @@ bin/
 lib/
 pyvenv.cfg
 test.txt
+share/
