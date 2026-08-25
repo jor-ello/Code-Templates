@@ -21,31 +21,22 @@ class ClassName(BaseModel):
         return
 
 
-def configure_CL(parser):
-    parser.add_argument('filename')           # positional argument, required input
-    parser.add_argument('-c', '--count')      # option that takes a value
-    parser.add_argument('-v', '--verbose',
-                    action='store_true')  # on/off flag
-    args = parser.parse_args()
-    return args
-
-def main(arg1="okay",arg2="we",arg3="ride"):
-    print(arg1)
-    print(arg2)
-    print(arg3)
-    return
-
-if __name__ == '__main__':
+def configure_CL(args):
     parser = argparse.ArgumentParser(
                     prog='ProgramName',
                     description='What the program does',
                     epilog='Text at the bottom of help')
+    parser.add_argument('filename')           # positional argument, required input
+    parser.add_argument('-c', '--count')      # option that takes a value
+    parser.add_argument('-v', '--verbose',
+                    action='store_true')  # on/off flag
+    parsed_args = parser.parse_args(args)
+    return parsed_args
 
-    args = configure_CL(parser)
-    arg1 = ""
-    if(args.filename):
-       arg1 = args.filename
-    else:
-       arg1 = "oops"
+def main(args):
+    parsed_args = configure_CL(args)
+    return
 
-    main(arg1=arg1)
+if __name__ == '__main__':
+    import sys
+    main(sys.argv[1:])
