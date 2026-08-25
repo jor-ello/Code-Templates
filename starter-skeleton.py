@@ -1,6 +1,6 @@
 # Imported libraries/packages/files
 import pydantic
-
+import argparse
 
 
 #Specific things imported
@@ -17,14 +17,30 @@ class ClassName(BaseModel):
 
     #Insert functions here; need an initialization function
     def __init__(self
-         ):
+        ):
         return
 
 
+def configure_CL(parser):
+    parser.add_argument('filename')           # positional argument
+    parser.add_argument('-c', '--count')      # option that takes a value
+    parser.add_argument('-v', '--verbose',
+                    action='store_true')  # on/off flag
+    args = parser.parse_args()
+    return args
 
-def main():
-    print("hello world")
+def main(arg1="okay",arg2="we",arg3="ride"):
+    print(arg1)
+    print(arg2)
+    print(arg3)
     return
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+                    prog='ProgramName',
+                    description='What the program does',
+                    epilog='Text at the bottom of help')
+
+    args = configure_CL(parser)
+
     main()
