@@ -22,7 +22,7 @@ class ClassName(BaseModel):
 
 
 def configure_CL(parser):
-    parser.add_argument('filename')           # positional argument
+    parser.add_argument('filename')           # positional argument, required input
     parser.add_argument('-c', '--count')      # option that takes a value
     parser.add_argument('-v', '--verbose',
                     action='store_true')  # on/off flag
@@ -42,5 +42,10 @@ if __name__ == '__main__':
                     epilog='Text at the bottom of help')
 
     args = configure_CL(parser)
+    arg1 = ""
+    if(args.filename):
+       arg1 = args.filename
+    else:
+       arg1 = "oops"
 
-    main()
+    main(arg1=arg1)
